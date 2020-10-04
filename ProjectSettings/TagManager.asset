@@ -11,6 +11,9 @@ TagManager:
   - Chalice
   - Pickup
   - White
+  - Bridge
+  - Portal
+  - Magnet
   layers:
   - Default
   - TransparentFX
