@@ -17,12 +17,16 @@ public class GameManager : MonoBehaviour
     public GameObject[] BlackKeySpawnpoints = null;
     public GameObject[] ChaliceSpawnpoints = null;
     public GameObject[] SwordSpawnpoints = null;
+    public GameObject[] BridgeSpawnpoints = null;
+    public GameObject[] MagnetSpawnpoints = null;
 
     public GameObject GoldKey;
     public GameObject WhiteKey;
     public GameObject BlackKey;
     public GameObject Chalice;
     public GameObject Sword;
+    public GameObject Bridge;
+    public GameObject Magnet;
 
     // Flags that control the state of the game
     private bool isRunning = false;
@@ -103,6 +107,9 @@ public class GameManager : MonoBehaviour
         BlackKey.transform.position = BlackKeySpawnpoints[Random.Range(0, 4)].transform.position;
         Chalice.transform.position = ChaliceSpawnpoints[Random.Range(0, 4)].transform.position;
         Sword.transform.position = SwordSpawnpoints[Random.Range(0, 4)].transform.position;
+        Bridge.transform.position = BridgeSpawnpoints[Random.Range(0, 4)].transform.position;
+        Magnet.transform.position = MagnetSpawnpoints[Random.Range(0, 4)].transform.position;
+
     }
 
     private void ResumeGame()
