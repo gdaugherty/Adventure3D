@@ -12,8 +12,8 @@ TagManager:
   - Pickup
   - White
   - Bridge
-  - Portal
   - Magnet
+  - BridgeCAM
   layers:
   - Default
   - TransparentFX
