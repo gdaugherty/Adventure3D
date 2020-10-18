@@ -66,6 +66,13 @@ public class GameManager : MonoBehaviour
         player.transform.rotation = spawnPoint.rotation;
     }
 
+    public void Teleport(Transform tspawn)
+    {
+        fpsController.enabled = false;
+        player.transform.position = tspawn.position;
+        fpsController.enabled = true;
+    }
+
     // Runs when the player is killed by a hazard
     public void DeadPlayer()
     {

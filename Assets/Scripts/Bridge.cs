@@ -5,13 +5,14 @@ using UnityStandardAssets.Characters.FirstPerson;
 
 public class Bridge : MonoBehaviour
 {
+    public GameManager gameManager;
     public Transform PortalSpawn;
    
     void OnTriggerEnter(Collider collider)
     {
         if (collider.tag == "Player")
         {
-            collider.transform.position = PortalSpawn.position;            
+            gameManager.Teleport(PortalSpawn);            
         }
                            
     }

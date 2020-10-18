@@ -5,19 +5,24 @@ using UnityEngine.AI;
 
 public class DragonNav : MonoBehaviour
 {
-    private NavMeshAgent agent;
-    public GameObject target;
-
+    private DragonAI dragonAI;
+    
     // Start is called before the first frame update
     void Start()
     {
-        agent = GetComponent<NavMeshAgent>();
-
+        dragonAI = GetComponent<DragonAI>();
     }
 
     // Update is called once per frame
     void Update()
     {
-        agent.SetDestination(target.transform.position);
+        if (dragonAI.CanSeeTarget())
+        {
+            dragonAI.Pursue();
+        }
+        else
+        {
+            dragonAI.Protect();
+        }
     }
 }
