@@ -16,7 +16,8 @@ public class Dragon : MonoBehaviour
         {
             transform.localScale = new Vector3(0, 0, 0);
 
-            //deadDragon.transform.localScale = new Vector3(1, 1, 1);
+            deadDragon.transform.localScale = new Vector3(1, 1, 1);
+            deadDragon.transform.position = transform.position;
             deadDragon.GetComponent<Animator>().Play("dragondeath");
         }
     }

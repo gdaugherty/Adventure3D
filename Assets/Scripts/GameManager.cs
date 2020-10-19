@@ -19,6 +19,7 @@ public class GameManager : MonoBehaviour
     public GameObject[] SwordSpawnpoints = null;
     public GameObject[] BridgeSpawnpoints = null;
     public GameObject[] MagnetSpawnpoints = null;
+    public GameObject[] DragonSpawnpoints = null;
 
     public GameObject GoldKey;
     public GameObject WhiteKey;
@@ -27,6 +28,10 @@ public class GameManager : MonoBehaviour
     public GameObject Sword;
     public GameObject Bridge;
     public GameObject Magnet;
+
+    public GameObject YellowDragon;
+    public GameObject GreenDragon;
+    public GameObject RedDragon;
 
     // Flags that control the state of the game
     private bool isRunning = false;
@@ -48,6 +53,7 @@ public class GameManager : MonoBehaviour
         fpsController.enabled = false;
         PositionPlayer();
         SpawnObjects();
+        SpawnDragons();
 
     }
 
@@ -119,6 +125,13 @@ public class GameManager : MonoBehaviour
 
     }
 
+    private void SpawnDragons()
+    {
+        GreenDragon.transform.position = DragonSpawnpoints[Random.Range(0, 4)].transform.position;
+        YellowDragon.transform.position = DragonSpawnpoints[Random.Range(0, 4)].transform.position;
+        RedDragon.transform.position = DragonSpawnpoints[Random.Range(0, 4)].transform.position;
+    }
+
     private void ResumeGame()
     {
         //isRunning = true;
@@ -126,6 +139,7 @@ public class GameManager : MonoBehaviour
         isDead = false;
 
         PositionPlayer();
+        SpawnDragons();
         fpsController.enabled = true;
         
     }
