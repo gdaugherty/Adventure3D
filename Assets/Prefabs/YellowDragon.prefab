@@ -1,13 +1,13 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!95 &797338489267381836
+--- !u!95 &8703219536886389506
 Animator:
   serializedVersion: 3
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1958701795900676170}
+  m_GameObject: {fileID: 4121467135642272830}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
   m_Controller: {fileID: 9100000, guid: 109c78d627dbaa5458b9afb36267d787, type: 2}
@@ -130,7 +130,7 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 0.62, y: 2.67, z: 1.43}
+  m_Size: {x: 1, y: 2.67, z: 2}
   m_Center: {x: -0.0059800013, y: 1.206174, z: -0.042326014}
 --- !u!82 &797338489731374515
 AudioSource:
@@ -240,8 +240,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d54907bec50512e44918b91ed556590e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  deadDragon: {fileID: 1958701795900676170}
-  attackDragon: {fileID: 4048489126184902769}
+  deadDragon: {fileID: 4121467135642272830}
   gameManager: {fileID: 0}
 --- !u!114 &797338489731374519
 MonoBehaviour:
@@ -321,12 +320,11 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 3572157291900021249}
-  - {fileID: 5650333008325575107}
-  - {fileID: 3703313240935643851}
+  - {fileID: 7815666806145342903}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1001 &797338489333000921
+--- !u!1001 &2957852595127023277
 PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
@@ -336,7 +334,7 @@ PrefabInstance:
     - target: {fileID: -8052994932809076077, guid: 6a00739ee3ee14b41a95e0e979c68611,
         type: 3}
       propertyPath: m_Name
-      value: DeadYellow
+      value: DeadDragon
       objectReference: {fileID: 0}
     - target: {fileID: -4216859302048453862, guid: 6a00739ee3ee14b41a95e0e979c68611,
         type: 3}
@@ -356,7 +354,7 @@ PrefabInstance:
     - target: {fileID: -4216859302048453862, guid: 6a00739ee3ee14b41a95e0e979c68611,
         type: 3}
       propertyPath: m_LocalRotation.x
-      value: -0
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: -4216859302048453862, guid: 6a00739ee3ee14b41a95e0e979c68611,
         type: 3}
@@ -396,130 +394,24 @@ PrefabInstance:
     - target: {fileID: -927199367670048503, guid: 6a00739ee3ee14b41a95e0e979c68611,
         type: 3}
       propertyPath: m_Name
-      value: DeadDragonYellow
-      objectReference: {fileID: 0}
-    - target: {fileID: -927199367670048503, guid: 6a00739ee3ee14b41a95e0e979c68611,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 1
+      value: Dragondead
       objectReference: {fileID: 0}
     - target: {fileID: 856365191234717131, guid: 6a00739ee3ee14b41a95e0e979c68611,
         type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: 357d10672fe09004a8c23d8c7a9e3183, type: 2}
-    - target: {fileID: 2636797423722545353, guid: 6a00739ee3ee14b41a95e0e979c68611,
-        type: 3}
-      propertyPath: m_LocalScale.x
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 2636797423722545353, guid: 6a00739ee3ee14b41a95e0e979c68611,
-        type: 3}
-      propertyPath: m_LocalScale.y
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 2636797423722545353, guid: 6a00739ee3ee14b41a95e0e979c68611,
-        type: 3}
-      propertyPath: m_LocalScale.z
-      value: 1
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6a00739ee3ee14b41a95e0e979c68611, type: 3}
---- !u!4 &5650333008325575107 stripped
+--- !u!4 &7815666806145342903 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -4216859302048453862, guid: 6a00739ee3ee14b41a95e0e979c68611,
     type: 3}
-  m_PrefabInstance: {fileID: 797338489333000921}
+  m_PrefabInstance: {fileID: 2957852595127023277}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &1958701795900676170 stripped
+--- !u!1 &4121467135642272830 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: -8052994932809076077, guid: 6a00739ee3ee14b41a95e0e979c68611,
     type: 3}
-  m_PrefabInstance: {fileID: 797338489333000921}
-  m_PrefabAsset: {fileID: 0}
---- !u!1001 &3814116471223967008
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    m_TransformParent: {fileID: 5650333008724948644}
-    m_Modifications:
-    - target: {fileID: -8679921383154817045, guid: 78f134d3182f5d2458523c0b8009c67f,
-        type: 3}
-      propertyPath: m_LocalPosition.x
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: 78f134d3182f5d2458523c0b8009c67f,
-        type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: 78f134d3182f5d2458523c0b8009c67f,
-        type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: 78f134d3182f5d2458523c0b8009c67f,
-        type: 3}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: 78f134d3182f5d2458523c0b8009c67f,
-        type: 3}
-      propertyPath: m_LocalRotation.y
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: 78f134d3182f5d2458523c0b8009c67f,
-        type: 3}
-      propertyPath: m_LocalRotation.z
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: 78f134d3182f5d2458523c0b8009c67f,
-        type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: 78f134d3182f5d2458523c0b8009c67f,
-        type: 3}
-      propertyPath: m_RootOrder
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: 78f134d3182f5d2458523c0b8009c67f,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: 78f134d3182f5d2458523c0b8009c67f,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: 78f134d3182f5d2458523c0b8009c67f,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 212188746439097559, guid: 78f134d3182f5d2458523c0b8009c67f,
-        type: 3}
-      propertyPath: m_Materials.Array.data[0]
-      value: 
-      objectReference: {fileID: 2100000, guid: 357d10672fe09004a8c23d8c7a9e3183, type: 2}
-    - target: {fileID: 919132149155446097, guid: 78f134d3182f5d2458523c0b8009c67f,
-        type: 3}
-      propertyPath: m_Name
-      value: DragonAttack
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: 78f134d3182f5d2458523c0b8009c67f, type: 3}
---- !u!1 &4048489126184902769 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 78f134d3182f5d2458523c0b8009c67f,
-    type: 3}
-  m_PrefabInstance: {fileID: 3814116471223967008}
-  m_PrefabAsset: {fileID: 0}
---- !u!4 &3703313240935643851 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 78f134d3182f5d2458523c0b8009c67f,
-    type: 3}
-  m_PrefabInstance: {fileID: 3814116471223967008}
+  m_PrefabInstance: {fileID: 2957852595127023277}
   m_PrefabAsset: {fileID: 0}

@@ -100,6 +100,7 @@ public class GameManager : MonoBehaviour
         CarriedObject.transform.parent = null;
         CarriedObject = GameObject.Find("Chalice");
         CarriedObject.transform.parent = null;
+        
     }
 
     //This resets to game back to the way it started
@@ -125,7 +126,7 @@ public class GameManager : MonoBehaviour
 
     }
 
-    private void SpawnDragons()
+    public void SpawnDragons()
     {
         GreenDragon.transform.position = DragonSpawnpoints[Random.Range(0, 4)].transform.position;
         YellowDragon.transform.position = DragonSpawnpoints[Random.Range(0, 4)].transform.position;
@@ -138,8 +139,7 @@ public class GameManager : MonoBehaviour
         //isFinished = false;
         isDead = false;
 
-        PositionPlayer();
-        SpawnDragons();
+        PositionPlayer();        
         fpsController.enabled = true;
         
     }

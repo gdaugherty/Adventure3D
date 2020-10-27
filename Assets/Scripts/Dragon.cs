@@ -1,16 +1,27 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.AI;
 
 public class Dragon : MonoBehaviour
 {
 
-    public GameObject deadDragon;
-    public GameObject attackDragon;
+    NavMeshAgent agent;
+    public GameObject deadDragon;    
     public GameManager gameManager;
     private bool isInside = false;
+    private MeshFilter mFilter;
+   
 
-    
+    void Start()
+    {
+        agent = this.GetComponent<NavMeshAgent>();
+        deadDragon.transform.localScale = new Vector3(0, 0, 0);        
+        mFilter = GetComponent<MeshFilter>();
+    }
+
+
+
     void OnTriggerEnter(Collider collider)
     {
         isInside = true;
@@ -18,14 +29,13 @@ public class Dragon : MonoBehaviour
         {
             transform.localScale = new Vector3(0, 0, 0);
             deadDragon.transform.localScale = new Vector3(1, 1, 1);
-            deadDragon.transform.position = transform.position;
+            deadDragon.transform.position = transform.position;            
             deadDragon.GetComponent<Animator>().Play("dragondeath");
         }
         if (collider.tag == "Player")
         {
-            transform.localScale = new Vector3(0, 0, 0);
-            attackDragon.transform.localScale = new Vector3(1, 1, 1);
-            attackDragon.transform.position = transform.position;
+            agent.isStopped = true;
+            mFilter.mesh = Resources.Load<Mesh>("DragonAttack");
             StartCoroutine(Attack());
         }
     }
@@ -42,16 +52,19 @@ public class Dragon : MonoBehaviour
 
     IEnumerator Attack()
     {
+        isInside = true;
         yield return new WaitForSeconds(1.0f);
         if (isInside)
         {
             gameManager.DeadPlayer();
             gameManager.PositionPlayer();
+            gameManager.SpawnDragons();
 
         }
-        attackDragon.transform.localScale = new Vector3(0, 0, 0);
-        transform.localScale = new Vector3(1, 1, 1);
 
+        agent.isStopped = false;
+        mFilter.mesh = Resources.Load<Mesh>("Dragon");
+        
 
     }
 }
