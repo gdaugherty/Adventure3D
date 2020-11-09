@@ -57,6 +57,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1a3c190762bab6d41832b54fa7b1c257, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  gameManager: {fileID: 0}
   PortalSpawn: {fileID: 6991173762062753710}
 --- !u!1 &1482367042138727477
 GameObject:
@@ -158,7 +159,6 @@ GameObject:
   - component: {fileID: 6847687107538139635}
   - component: {fileID: 4457892860493780883}
   - component: {fileID: 6723285191113052624}
-  - component: {fileID: 7803506747611333591}
   m_Layer: 0
   m_Name: Bridge
   m_TagString: Bridge
@@ -232,22 +232,6 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
---- !u!54 &7803506747611333591
-Rigidbody:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2627521117328152065}
-  serializedVersion: 2
-  m_Mass: 1
-  m_Drag: 0
-  m_AngularDrag: 0.05
-  m_UseGravity: 1
-  m_IsKinematic: 0
-  m_Interpolate: 0
-  m_Constraints: 0
-  m_CollisionDetection: 0
 --- !u!1 &3436121307899711447
 GameObject:
   m_ObjectHideFlags: 0
@@ -418,4 +402,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1a3c190762bab6d41832b54fa7b1c257, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  gameManager: {fileID: 0}
   PortalSpawn: {fileID: 7687897846044405293}
