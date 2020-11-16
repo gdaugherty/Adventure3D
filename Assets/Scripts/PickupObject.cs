@@ -6,11 +6,11 @@ public class PickupObject : MonoBehaviour
 {
 
     GameObject CarriedObject;
-    bool carrying;
+    bool iscarrying;
+    public AudioClip pickup;
+    public AudioClip drop;
     AudioSource audioSource;
     
-
-
     // Start is called before the first frame update
     void Start()
     {
@@ -20,21 +20,22 @@ public class PickupObject : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (carrying == true)
+        if (iscarrying == true)
         {
             checkDrop();
-        }
+        }        
         
     }
 
     void OnTriggerEnter(Collider collider)
     {
         GameObject collidedWith = collider.gameObject;
-        if ((collidedWith.tag == "Pickup") && (carrying == false))
+        if ((collidedWith.tag == "Pickup") && (iscarrying == false))
         {
             collidedWith.transform.parent = GetComponent<Transform>().transform;
             CarriedObject = collidedWith;
-            carrying = true;
+            iscarrying = true;
+            audioSource.clip = pickup;
             audioSource.Play();
         }
 
@@ -42,18 +43,20 @@ public class PickupObject : MonoBehaviour
 
     void checkDrop()
     {
-        if (Input.GetKeyDown(KeyCode.Space))
+        if (Input.GetKeyDown(KeyCode.Mouse2))
         {
-            dropObject();
+            iscarrying = false;
+            CarriedObject.transform.parent = null;
+            CarriedObject.transform.Translate(0.0f, 0.0f, -1.0f);
+            audioSource.clip = drop;
+            audioSource.Play();
         }
     }
 
-    void dropObject()
+    /*public void dropObject()
     {
-        carrying = false;
+        iscarrying = false;
         CarriedObject.transform.parent = null;
-        CarriedObject.transform.Translate(0.0f, 0.0f, -1.0f);
-        audioSource.Play();
-    }
+    }*/
   
 }

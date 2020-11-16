@@ -7,7 +7,7 @@ public class GameManager : MonoBehaviour
     // Place holders to allow connecting to other objects
     //A reference to the game manager
 
-    public Transform spawnPoint;
+    public Transform PlayerSpawnPoint;
     public GameObject player;
     public GameObject DeathScreen;
     public GameObject WinScreen;
@@ -21,14 +21,8 @@ public class GameManager : MonoBehaviour
     public GameObject[] MagnetSpawnpoints = null;
     public GameObject[] DragonSpawnpoints = null;
 
-    public GameObject GoldKey;
-    public GameObject WhiteKey;
-    public GameObject BlackKey;
-    public GameObject Chalice;
-    public GameObject Sword;
-    public GameObject Bridge;
-    public GameObject Magnet;
-
+    public GameObject[] PickupItems = null;
+    
     public GameObject YellowDragon;
     public GameObject GreenDragon;
     public GameObject RedDragon;
@@ -37,8 +31,7 @@ public class GameManager : MonoBehaviour
     private bool isRunning = false;
     private bool isFinished = false;
     private bool isDead = false;
-    private GameObject CarriedObject;
-
+    
     // So that we can access the player's controller from this script
     private FirstPersonController fpsController;
 
@@ -47,7 +40,7 @@ public class GameManager : MonoBehaviour
     void Start()
     {
         // Finds the First Person Controller script on the Player
-        fpsController = player.GetComponent<FirstPersonController>();
+        fpsController = player.GetComponent<FirstPersonController>();        
 
         // Disables controls at the start.
         fpsController.enabled = false;
@@ -63,13 +56,14 @@ public class GameManager : MonoBehaviour
         {
             Application.Quit();
         }
+
     }
 
     //Runs when the player needs to be positioned back at the spawn point
     public void PositionPlayer()
     {
-        player.transform.position = spawnPoint.position;
-        player.transform.rotation = spawnPoint.rotation;
+        player.transform.position = PlayerSpawnPoint.position;
+        player.transform.rotation = PlayerSpawnPoint.rotation;
     }
 
     public void Teleport(Transform tspawn)
@@ -85,22 +79,7 @@ public class GameManager : MonoBehaviour
         isDead = true;
         isRunning = true;
         isFinished = false;
-        fpsController.enabled = false;
-        CarriedObject = GameObject.Find("Sword");
-        CarriedObject.transform.parent = null;
-        CarriedObject = GameObject.Find("GoldKey");
-        CarriedObject.transform.parent = null;
-        CarriedObject = GameObject.Find("BlackKey");
-        CarriedObject.transform.parent = null;
-        CarriedObject = GameObject.Find("WhiteKey");
-        CarriedObject.transform.parent = null;
-        CarriedObject = GameObject.Find("Bridge");
-        CarriedObject.transform.parent = null;
-        CarriedObject = GameObject.Find("Magnet");
-        CarriedObject.transform.parent = null;
-        CarriedObject = GameObject.Find("Chalice");
-        CarriedObject.transform.parent = null;
-        
+        fpsController.enabled = false;        
     }
 
     //This resets to game back to the way it started
@@ -116,13 +95,13 @@ public class GameManager : MonoBehaviour
 
     private void SpawnObjects()
     {
-        GoldKey.transform.position = GoldKeySpawnpoints[Random.Range(0, 4)].transform.position;
-        WhiteKey.transform.position = WhiteKeySpawnpoints[Random.Range(0, 4)].transform.position;
-        BlackKey.transform.position = BlackKeySpawnpoints[Random.Range(0, 4)].transform.position;
-        Chalice.transform.position = ChaliceSpawnpoints[Random.Range(0, 4)].transform.position;
-        Sword.transform.position = SwordSpawnpoints[Random.Range(0, 4)].transform.position;
-        Bridge.transform.position = BridgeSpawnpoints[Random.Range(0, 4)].transform.position;
-        Magnet.transform.position = MagnetSpawnpoints[Random.Range(0, 4)].transform.position;
+        PickupItems[0].transform.position = GoldKeySpawnpoints[Random.Range(0, 4)].transform.position;
+        PickupItems[1].transform.position = WhiteKeySpawnpoints[Random.Range(0, 4)].transform.position;
+        PickupItems[2].transform.position = BlackKeySpawnpoints[Random.Range(0, 4)].transform.position;
+        PickupItems[3].transform.position = ChaliceSpawnpoints[Random.Range(0, 4)].transform.position;
+        PickupItems[4].transform.position = SwordSpawnpoints[Random.Range(0, 4)].transform.position;
+        PickupItems[5].transform.position = BridgeSpawnpoints[Random.Range(0, 4)].transform.position;
+        PickupItems[6].transform.position = MagnetSpawnpoints[Random.Range(0, 4)].transform.position;
 
     }
 
@@ -172,11 +151,13 @@ public class GameManager : MonoBehaviour
 
         if (isDead)
         {            
-            DeathScreen.SetActive(true);
+            DeathScreen.SetActive(true);            
         
             if (Input.GetKeyDown(KeyCode.Space))
             {
                 DeathScreen.SetActive(false);
+                //SpawnObjects();
+                SpawnDragons();
                 ResumeGame();               
             }
         }

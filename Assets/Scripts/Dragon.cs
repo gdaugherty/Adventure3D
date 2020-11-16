@@ -11,13 +11,15 @@ public class Dragon : MonoBehaviour
     public GameManager gameManager;
     private bool isInside = false;
     private MeshFilter mFilter;
-   
+    AudioSource audioSource;
+
 
     void Start()
     {
         agent = this.GetComponent<NavMeshAgent>();
         deadDragon.transform.localScale = new Vector3(0, 0, 0);        
         mFilter = GetComponent<MeshFilter>();
+        audioSource = GetComponent<AudioSource>();
     }
 
 
@@ -59,6 +61,7 @@ public class Dragon : MonoBehaviour
             gameManager.DeadPlayer();
             gameManager.PositionPlayer();
             gameManager.SpawnDragons();
+            audioSource.Play();
 
         }
 

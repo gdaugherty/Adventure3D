@@ -7,6 +7,7 @@ public class DeathTrigger : MonoBehaviour
     //A reference to the game manager
     public GameManager gameManager;
     AudioSource audioSource;
+    public AudioClip death;
 
     // Triggers when the player enters the water
     void OnTriggerEnter(Collider collider)
@@ -17,6 +18,7 @@ public class DeathTrigger : MonoBehaviour
         {
             gameManager.DeadPlayer();
             gameManager.PositionPlayer();
+            audioSource.clip = death;
             audioSource.Play();
         }
     }

@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 705507994}
-  m_IndirectSpecularColor: {r: 0.27566454, g: 0.49010468, b: 0.44410628, a: 1}
+  m_IndirectSpecularColor: {r: 0.27468908, g: 0.48981112, b: 0.44346362, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -1470,7 +1470,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 55e1461cbfbd36f4593ea30c1530f8b2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  spawnPoint: {fileID: 1573518682}
+  PlayerSpawnPoint: {fileID: 1573518682}
   player: {fileID: 325487835}
   DeathScreen: {fileID: 751379058}
   WinScreen: {fileID: 1557603146}
@@ -1490,10 +1490,10 @@ MonoBehaviour:
   - {fileID: 371892807}
   - {fileID: 371892807}
   ChaliceSpawnpoints:
-  - {fileID: 640707252}
-  - {fileID: 1712756116}
   - {fileID: 1399716548}
-  - {fileID: 1932027972}
+  - {fileID: 1399716548}
+  - {fileID: 1399716548}
+  - {fileID: 1399716548}
   SwordSpawnpoints:
   - {fileID: 1682611972}
   - {fileID: 1682611972}
@@ -1514,13 +1514,14 @@ MonoBehaviour:
   - {fileID: 316013539}
   - {fileID: 316013539}
   - {fileID: 316013539}
-  GoldKey: {fileID: 327952165}
-  WhiteKey: {fileID: 1031731004}
-  BlackKey: {fileID: 1808110661}
-  Chalice: {fileID: 8296172667939566327}
-  Sword: {fileID: 8296172667741606874}
-  Bridge: {fileID: 626841765}
-  Magnet: {fileID: 46776780}
+  PickupItems:
+  - {fileID: 327952165}
+  - {fileID: 1031731004}
+  - {fileID: 1808110661}
+  - {fileID: 8296172667939566327}
+  - {fileID: 8296172667741606874}
+  - {fileID: 626841765}
+  - {fileID: 46776780}
   YellowDragon: {fileID: 8296172668919492271}
   GreenDragon: {fileID: 801576244}
   RedDragon: {fileID: 8296172669439995333}
@@ -1903,7 +1904,7 @@ PrefabInstance:
     - target: {fileID: 7420570731202630908, guid: 5c84c95f5e7fab34f8469bede29bfe21,
         type: 3}
       propertyPath: m_RootOrder
-      value: 2
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7420570731202630908, guid: 5c84c95f5e7fab34f8469bede29bfe21,
         type: 3}
@@ -2705,7 +2706,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 705507993}
   m_LocalRotation: {x: 0.7071068, y: 0, z: 0, w: 0.7071068}
-  m_LocalPosition: {x: 171.9, y: 78.9, z: 24.7}
+  m_LocalPosition: {x: 115.3, y: 33.01, z: 99.08}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -10304,7 +10305,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1573518682}
   m_Layer: 0
-  m_Name: SpawnPoint
+  m_Name: PlayerSpawnPoint
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -11355,6 +11356,11 @@ PrefabInstance:
       propertyPath: m_IsTrigger
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 8113983914942335898, guid: 5b7ebaed2fbd6534cb4c9e4b1fa7b249,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5b7ebaed2fbd6534cb4c9e4b1fa7b249, type: 3}
 --- !u!4 &1808110660 stripped
@@ -11593,8 +11599,8 @@ GameObject:
   - component: {fileID: 1963587435}
   - component: {fileID: 1963587434}
   - component: {fileID: 1963587433}
-  - component: {fileID: 1963587436}
   - component: {fileID: 1963587437}
+  - component: {fileID: 1963587436}
   m_Layer: 0
   m_Name: Body
   m_TagString: Untagged
@@ -11688,6 +11694,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3e2b6e6d98e33ab41aac39c259fc43fd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  pickup: {fileID: 8300000, guid: fddc522cf2f409f419102b8b54cd56b2, type: 3}
+  drop: {fileID: 8300000, guid: 125a0f1375e580a48af8ca101033bb1b, type: 3}
 --- !u!82 &1963587437
 AudioSource:
   m_ObjectHideFlags: 0
@@ -11698,7 +11706,7 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: fddc522cf2f409f419102b8b54cd56b2, type: 3}
+  m_audioClip: {fileID: 0}
   m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
@@ -12391,6 +12399,11 @@ PrefabInstance:
     - target: {fileID: 1956543976263394001, guid: bd8981c848c823c4c8b9396221783bdb,
         type: 3}
       propertyPath: m_IsTrigger
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1956543976263394001, guid: bd8981c848c823c4c8b9396221783bdb,
+        type: 3}
+      propertyPath: m_Enabled
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6799800675101991058, guid: bd8981c848c823c4c8b9396221783bdb,
