@@ -35,6 +35,9 @@ public class GameManager : MonoBehaviour
     // So that we can access the player's controller from this script
     private FirstPersonController fpsController;
 
+    public delegate void DroppedObject();
+    public static event DroppedObject dropped;
+
 
     // Use this for initialization
     void Start()
@@ -79,7 +82,8 @@ public class GameManager : MonoBehaviour
         isDead = true;
         isRunning = true;
         isFinished = false;
-        fpsController.enabled = false;        
+        fpsController.enabled = false;
+        dropped?.Invoke();
     }
 
     //This resets to game back to the way it started

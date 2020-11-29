@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 705507994}
-  m_IndirectSpecularColor: {r: 0.27468908, g: 0.48981112, b: 0.44346362, a: 1}
+  m_IndirectSpecularColor: {r: 0.060325034, g: 0.20145558, b: 0.16266376, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -2649,7 +2649,7 @@ Light:
   m_Type: 1
   m_Shape: 0
   m_Color: {r: 0.76557493, g: 0.8021284, b: 0.8679245, a: 1}
-  m_Intensity: 0.5
+  m_Intensity: 1
   m_Range: 10
   m_SpotAngle: 30
   m_InnerSpotAngle: 21.80208
@@ -8982,7 +8982,7 @@ Terrain:
   m_DrawInstanced: 0
   m_DrawTreesAndFoliage: 1
   m_ReflectionProbeUsage: 1
-  m_MaterialTemplate: {fileID: 10652, guid: 0000000000000000f000000000000000, type: 0}
+  m_MaterialTemplate: {fileID: 2100000, guid: a59ee6e1172d2ea42b3d9bbe9db0d75a, type: 2}
   m_BakeLightProbesForTrees: 1
   m_PreserveTreePrototypeLayers: 0
   m_DeringLightProbesForTrees: 1
@@ -11417,9 +11417,9 @@ Light:
   serializedVersion: 10
   m_Type: 0
   m_Shape: 0
-  m_Color: {r: 0.9056604, g: 0.8737462, b: 0.36311856, a: 1}
-  m_Intensity: 10
-  m_Range: 10
+  m_Color: {r: 1, g: 0.9811321, b: 0.6745283, a: 1}
+  m_Intensity: 5
+  m_Range: 8
   m_SpotAngle: 170
   m_InnerSpotAngle: 1
   m_CookieSize: 10

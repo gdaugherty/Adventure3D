@@ -4838,6 +4838,7 @@ ParticleSystemRenderer:
   m_MotionVectors: 1
   m_LightProbeUsage: 0
   m_ReflectionProbeUsage: 0
+  m_RayTracingMode: 0
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -4925,10 +4926,11 @@ Light:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5638926302604352898}
   m_Enabled: 1
-  serializedVersion: 9
+  serializedVersion: 10
   m_Type: 2
-  m_Color: {r: 1, g: 0.6723624, b: 0, a: 1}
-  m_Intensity: 3
+  m_Shape: 0
+  m_Color: {r: 1, g: 0.9300777, b: 0.7877358, a: 1}
+  m_Intensity: 1
   m_Range: 15
   m_SpotAngle: 30
   m_InnerSpotAngle: 21.80208
@@ -9682,6 +9684,7 @@ ParticleSystemRenderer:
   m_MotionVectors: 1
   m_LightProbeUsage: 0
   m_ReflectionProbeUsage: 0
+  m_RayTracingMode: 0
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -9768,11 +9771,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 8692320919560757804}
     m_Modifications:
-    - target: {fileID: -927199367670048503, guid: afa908898dd4229488cf825c46498ffe,
-        type: 3}
-      propertyPath: m_Name
-      value: Sconce
-      objectReference: {fileID: 0}
     - target: {fileID: -8373198368570682705, guid: afa908898dd4229488cf825c46498ffe,
         type: 3}
       propertyPath: m_Materials.Array.data[0]
@@ -9832,6 +9830,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -927199367670048503, guid: afa908898dd4229488cf825c46498ffe,
+        type: 3}
+      propertyPath: m_Name
+      value: Sconce
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: afa908898dd4229488cf825c46498ffe, type: 3}

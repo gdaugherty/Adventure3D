@@ -14,7 +14,8 @@ public class PickupObject : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        audioSource = GetComponent<AudioSource>();        
+        audioSource = GetComponent<AudioSource>();
+        GameManager.dropped += dropObject;
     }
 
     // Update is called once per frame
@@ -53,10 +54,10 @@ public class PickupObject : MonoBehaviour
         }
     }
 
-    /*public void dropObject()
+    public void dropObject()
     {
         iscarrying = false;
         CarriedObject.transform.parent = null;
-    }*/
+    }
   
 }
