@@ -12,6 +12,8 @@ public class Dragon : MonoBehaviour
     private bool isInside = false;
     private MeshFilter mFilter;
     AudioSource audioSource;
+    public AudioClip chomp;
+    public AudioClip swallow;
 
 
     void Start()
@@ -38,6 +40,8 @@ public class Dragon : MonoBehaviour
         {
             agent.isStopped = true;
             mFilter.mesh = Resources.Load<Mesh>("DragonAttack");
+            audioSource.clip = chomp;
+            audioSource.Play();
             StartCoroutine(Attack());
         }
     }
@@ -60,9 +64,9 @@ public class Dragon : MonoBehaviour
         {
             gameManager.DeadPlayer();
             gameManager.PositionPlayer();
-            gameManager.SpawnDragons();
+            //gameManager.SpawnDragons();
+            audioSource.clip = swallow;
             audioSource.Play();
-
         }
 
         agent.isStopped = false;

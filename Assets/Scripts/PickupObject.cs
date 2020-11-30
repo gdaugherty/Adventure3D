@@ -10,6 +10,7 @@ public class PickupObject : MonoBehaviour
     public AudioClip pickup;
     public AudioClip drop;
     AudioSource audioSource;
+
     
     // Start is called before the first frame update
     void Start()

@@ -174,7 +174,7 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: ad56332d226687043b7070dc98efc9e4, type: 3}
+  m_audioClip: {fileID: 0}
   m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
@@ -274,6 +274,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   deadDragon: {fileID: 7655130295990835969}
   gameManager: {fileID: 0}
+  chomp: {fileID: 8300000, guid: fdbb298a51c783941ac64b44c16554e0, type: 3}
+  swallow: {fileID: 8300000, guid: ad56332d226687043b7070dc98efc9e4, type: 3}
 --- !u!114 &3249314660356132979
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -162,7 +162,8 @@ public class GameManager : MonoBehaviour
                 DeathScreen.SetActive(false);
                 //SpawnObjects();
                 SpawnDragons();
-                ResumeGame();               
+                ResumeGame();
+                PositionPlayer();
             }
         }
         
