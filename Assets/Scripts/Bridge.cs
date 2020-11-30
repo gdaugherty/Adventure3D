@@ -5,16 +5,37 @@ using UnityStandardAssets.Characters.FirstPerson;
 
 public class Bridge : MonoBehaviour
 {
-    public GameManager gameManager;
-    public Transform PortalSpawn;
-   
+    public GameObject realmTerrain;
+    private TerrainCollider tcollider;
+
+    void Start()
+    {
+        tcollider = realmTerrain.GetComponent<TerrainCollider>();        
+    }
+
     void OnTriggerEnter(Collider collider)
     {
         if (collider.tag == "Player")
         {
-            gameManager.Teleport(PortalSpawn);            
+            tcollider.enabled = false;            
         }
                            
     }
-   
+
+    private void OnTriggerStay(Collider other)
+    {
+        if (other.tag == "Player")
+        {
+            tcollider.enabled = false;
+        }
+    }
+
+    void OnTriggerExit(Collider other)
+    {
+        if (other.tag == "Player")
+        {
+            tcollider.enabled = true;
+        }
+    }
+
 }
