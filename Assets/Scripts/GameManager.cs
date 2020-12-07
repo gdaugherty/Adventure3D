@@ -12,28 +12,29 @@ public class GameManager : MonoBehaviour
     public GameObject DeathScreen;
     public GameObject WinScreen;
 
-    public GameObject[] GoldKeySpawnpoints = null;
-    public GameObject[] WhiteKeySpawnpoints = null;
-    public GameObject[] BlackKeySpawnpoints = null;
-    public GameObject[] ChaliceSpawnpoints = null;
-    public GameObject[] SwordSpawnpoints = null;
-    public GameObject[] BridgeSpawnpoints = null;
-    public GameObject[] MagnetSpawnpoints = null;
-    public GameObject[] DragonSpawnpoints = null;
+    public GameObject[] GoldKeySpawnpoints;
+    public GameObject[] WhiteKeySpawnpoints;
+    public GameObject[] BlackKeySpawnpoints;
+    public GameObject[] ChaliceSpawnpoints;
+    public GameObject[] SwordSpawnpoints;
+    public GameObject[] BridgeSpawnpoints;
+    public GameObject[] MagnetSpawnpoints;
+    //public GameObject[] DragonSpawnpoints;
 
-    public GameObject[] PickupItems = null;
+    public GameObject[] PickupItems;
     
-    public GameObject YellowDragon;
-    public GameObject GreenDragon;
-    public GameObject RedDragon;
+    //public GameObject YellowDragon;
+    //public GameObject GreenDragon;
+    //public GameObject RedDragon;
 
     // Flags that control the state of the game
     private bool isRunning = false;
     private bool isFinished = false;
-    private bool isDead = false;
+    public bool isDead = false;
     
     // So that we can access the player's controller from this script
     private FirstPersonController fpsController;
+  
 
     public delegate void DroppedObject();
     public static event DroppedObject dropped;
@@ -45,11 +46,10 @@ public class GameManager : MonoBehaviour
         // Finds the First Person Controller script on the Player
         fpsController = player.GetComponent<FirstPersonController>();        
 
-        // Disables controls at the start.
+        // Disables controls at the start.       
         fpsController.enabled = false;
         PositionPlayer();
         SpawnObjects();
-        SpawnDragons();
 
     }
 
@@ -69,12 +69,6 @@ public class GameManager : MonoBehaviour
         player.transform.rotation = PlayerSpawnPoint.rotation;
     }
 
-    public void Teleport(Transform tspawn)
-    {
-        fpsController.enabled = false;
-        player.transform.position = tspawn.position;
-        fpsController.enabled = true;
-    }
 
     // Runs when the player is killed by a hazard
     public void DeadPlayer()
@@ -84,6 +78,7 @@ public class GameManager : MonoBehaviour
         isFinished = false;
         fpsController.enabled = false;
         dropped?.Invoke();
+        PositionPlayer();
     }
 
     //This resets to game back to the way it started
@@ -109,25 +104,14 @@ public class GameManager : MonoBehaviour
 
     }
 
-    public void SpawnDragons()
-    {
-        GreenDragon.transform.position = DragonSpawnpoints[Random.Range(0, 4)].transform.position;
-        YellowDragon.transform.position = DragonSpawnpoints[Random.Range(0, 4)].transform.position;
-        RedDragon.transform.position = DragonSpawnpoints[Random.Range(0, 4)].transform.position;
-    }
-
     private void ResumeGame()
     {
-        //isRunning = true;
-        //isFinished = false;
         isDead = false;
-
-        PositionPlayer();        
         fpsController.enabled = true;
-        
+        PositionPlayer();
     }
-            
-    
+
+
     // Runs when the player enters the finish zone
     public void FinishedGame()
     {
@@ -160,10 +144,7 @@ public class GameManager : MonoBehaviour
             if (Input.GetKeyDown(KeyCode.Space))
             {
                 DeathScreen.SetActive(false);
-                //SpawnObjects();
-                SpawnDragons();
                 ResumeGame();
-                PositionPlayer();
             }
         }
         

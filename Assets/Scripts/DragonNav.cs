@@ -13,6 +13,8 @@ public class DragonNav : MonoBehaviour
         dragonAI = GetComponent<DragonAI>();
     }
 
+
+
     // Update is called once per frame
     void Update()
     {

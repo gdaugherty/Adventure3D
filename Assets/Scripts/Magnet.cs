@@ -4,45 +4,57 @@ using UnityEngine;
 
 public class Magnet : MonoBehaviour
 {
-    private List<GameObject> pullObjects;
+
     public float pullSpeed;
-    private Vector3 pullDirection;
 
-    // Start is called before the first frame update
-    void Start()
+    private GameObject pullObject;
+    private bool isAttractive;
+
+
+    private void FixedUpdate()
     {
-        pullObjects = new List<GameObject>();
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-
-        
-        foreach (GameObject obj in pullObjects)
+        if (isAttractive)
         {
-            pullDirection = transform.position - obj.transform.position;
-            //Debug.Log(pullDirection);
-            obj.transform.Translate(Time.deltaTime * pullSpeed * pullDirection);
+            pullObject.GetComponent<Rigidbody>().AddForce((transform.position - pullObject.transform.position) * pullSpeed * Time.smoothDeltaTime);
+
+            if (Mathf.Abs(transform.position.x - pullObject.transform.position.x) < 0.5)
+            {
+                pullObject.transform.position = transform.position;
+            }
+        }
+        else
+        {
+            pullObject.GetComponent<Rigidbody>().velocity = new Vector3(0.0f, 0.0f, 0.0f);
         }
     }
 
-
-    public void OnTriggerEnter(Collider other)
+    private void OnTriggerEnter(Collider other)
     {
         if (other.tag == "Pickup")
         {
-            Debug.Log("Object Entered");
-            pullObjects.Add(other.gameObject);
-            pullDirection = (transform.position);
+            isAttractive = true;
+            pullObject = other.gameObject;
         }
-       
     }
 
-    public void OnTriggerExit(Collider other)
+    private void OnTriggerStay(Collider other)
     {
-        Debug.Log("Object Exited");
-        pullObjects.Remove(other.gameObject);
-        pullDirection = (transform.position);
+        if (other.tag == "Pickup")
+        {
+            isAttractive = true;
+            pullObject = other.gameObject;
+        }
+        else
+        {
+            isAttractive = false;
+            
+        }
     }
+
+    private void OnTriggerExit(Collider other)
+    {
+        isAttractive = false;
+        
+    }
+
 }

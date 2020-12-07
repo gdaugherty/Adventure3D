@@ -10,7 +10,8 @@ GameObject:
   m_Component:
   - component: {fileID: 1652570973752910496}
   - component: {fileID: 835149216036480471}
-  m_Layer: 0
+  - component: {fileID: 1083232101136548466}
+  m_Layer: 2
   m_Name: Chalice
   m_TagString: Pickup
   m_Icon: {fileID: 0}
@@ -46,6 +47,22 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1.12, y: 1.12, z: 1.12}
   m_Center: {x: 0, y: 0.59, z: 0}
+--- !u!54 &1083232101136548466
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2136056591594141722}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 1
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 4
+  m_CollisionDetection: 0
 --- !u!1 &5617251788590229807
 GameObject:
   m_ObjectHideFlags: 0
@@ -57,7 +74,7 @@ GameObject:
   - component: {fileID: 3245143017649800003}
   - component: {fileID: 7071944310387460827}
   - component: {fileID: 5625785236194823751}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Particle System
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4812,7 +4829,7 @@ GameObject:
   - component: {fileID: 6708969837659016799}
   - component: {fileID: 7757193131819479577}
   - component: {fileID: 1400465246363792953}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Chalice
   m_TagString: Chalice
   m_Icon: {fileID: 0}

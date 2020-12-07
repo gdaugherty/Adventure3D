@@ -9,7 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7524765906256706417}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: RedDragon
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -69,7 +69,7 @@ GameObject:
   - component: {fileID: 3249314660356132979}
   - component: {fileID: 3249314660356132976}
   - component: {fileID: 3249314660356132990}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Dragon
   m_TagString: Sword
   m_Icon: {fileID: 0}
@@ -276,6 +276,8 @@ MonoBehaviour:
   gameManager: {fileID: 0}
   chomp: {fileID: 8300000, guid: fdbb298a51c783941ac64b44c16554e0, type: 3}
   swallow: {fileID: 8300000, guid: ad56332d226687043b7070dc98efc9e4, type: 3}
+  DragonSpawnpoints:
+  - {fileID: 0}
 --- !u!114 &3249314660356132979
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -338,6 +340,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: DeadDragon
       objectReference: {fileID: 0}
+    - target: {fileID: -8052994932809076077, guid: 6a00739ee3ee14b41a95e0e979c68611,
+        type: 3}
+      propertyPath: m_Layer
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: -4216859302048453862, guid: 6a00739ee3ee14b41a95e0e979c68611,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -397,6 +404,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Dragondead
+      objectReference: {fileID: 0}
+    - target: {fileID: -927199367670048503, guid: 6a00739ee3ee14b41a95e0e979c68611,
+        type: 3}
+      propertyPath: m_Layer
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 856365191234717131, guid: 6a00739ee3ee14b41a95e0e979c68611,
         type: 3}

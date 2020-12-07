@@ -9,22 +9,46 @@ public class Dragon : MonoBehaviour
     NavMeshAgent agent;
     public GameObject deadDragon;    
     public GameManager gameManager;
-    private bool isInside = false;
-    private MeshFilter mFilter;
+   
     AudioSource audioSource;
     public AudioClip chomp;
     public AudioClip swallow;
 
+    private bool isInside = false;
+    private MeshFilter mFilter;
+
+    //public GameObject[] DragonSpawnpoints;
+
+
 
     void Start()
     {
+        //SpawnDragons();
+
         agent = this.GetComponent<NavMeshAgent>();
         deadDragon.transform.localScale = new Vector3(0, 0, 0);        
         mFilter = GetComponent<MeshFilter>();
         audioSource = GetComponent<AudioSource>();
     }
 
+    private void Update()
+    {
+        if (gameManager.isDead)
+        {
+            //SpawnDragons();
+            deadDragon.transform.localScale = new Vector3(0, 0, 0);
+            mFilter.mesh = Resources.Load<Mesh>("Dragon");
+            transform.localScale = new Vector3(1, 1, 1);
+            agent.isStopped = false;
+            gameManager.PositionPlayer();
+        }
 
+    }
+
+    /*public void SpawnDragons()
+    {
+        transform.position = DragonSpawnpoints[Random.Range(0, 4)].transform.position;
+    }*/
 
     void OnTriggerEnter(Collider collider)
     {
@@ -62,16 +86,17 @@ public class Dragon : MonoBehaviour
         yield return new WaitForSeconds(1.0f);
         if (isInside)
         {
-            gameManager.DeadPlayer();
-            gameManager.PositionPlayer();
-            //gameManager.SpawnDragons();
             audioSource.clip = swallow;
             audioSource.Play();
+            gameManager.DeadPlayer();
+            mFilter.mesh = Resources.Load<Mesh>("Dragon");
+            agent.isStopped = false;
         }
-
-        agent.isStopped = false;
-        mFilter.mesh = Resources.Load<Mesh>("Dragon");
-        
+        else
+        {
+            mFilter.mesh = Resources.Load<Mesh>("Dragon");
+            agent.isStopped = false;
+        }   
 
     }
 }

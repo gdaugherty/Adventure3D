@@ -37,6 +37,7 @@ public class PickupObject : MonoBehaviour
             collidedWith.transform.parent = GetComponent<Transform>().transform;
             CarriedObject = collidedWith;
             iscarrying = true;
+            collidedWith.tag = "Carried";
             audioSource.clip = pickup;
             audioSource.Play();
         }
@@ -45,9 +46,10 @@ public class PickupObject : MonoBehaviour
 
     void checkDrop()
     {
-        if (Input.GetKeyDown(KeyCode.Mouse2))
+        if (Input.GetKeyDown(KeyCode.Space))
         {
             iscarrying = false;
+            CarriedObject.tag = "Pickup";
             CarriedObject.transform.parent = null;
             CarriedObject.transform.Translate(0.0f, 0.0f, -1.0f);
             audioSource.clip = drop;
@@ -58,6 +60,7 @@ public class PickupObject : MonoBehaviour
     public void dropObject()
     {
         iscarrying = false;
+        CarriedObject.tag = "Pickup";
         CarriedObject.transform.parent = null;
     }
   
