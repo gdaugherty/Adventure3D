@@ -36,13 +36,18 @@ public class Dragon : MonoBehaviour
         if (gameManager.isDead)
         {
             //SpawnDragons();
+            deadDragon.GetComponent<Animator>().Play("static");
             deadDragon.transform.localScale = new Vector3(0, 0, 0);
+
             mFilter.mesh = Resources.Load<Mesh>("Dragon");
             transform.localScale = new Vector3(1, 1, 1);
+
             agent.isStopped = false;
             gameManager.PositionPlayer();
         }
 
+        if (gameManager.isFinished)
+            agent.isStopped = true;
     }
 
     /*public void SpawnDragons()

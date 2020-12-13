@@ -15,6 +15,7 @@ TagManager:
   - Magnet
   - BridgeCAM
   - Carried
+  - PickUp-Br
   layers:
   - Default
   - TransparentFX

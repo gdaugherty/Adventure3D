@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using UnityStandardAssets.Characters.FirstPerson;
+using UnityEngine.UI;
 
 
 public class GameManager : MonoBehaviour
@@ -11,6 +12,7 @@ public class GameManager : MonoBehaviour
     public GameObject player;
     public GameObject DeathScreen;
     public GameObject WinScreen;
+    public GameObject PauseScreen;
 
     public GameObject[] GoldKeySpawnpoints;
     public GameObject[] WhiteKeySpawnpoints;
@@ -29,7 +31,7 @@ public class GameManager : MonoBehaviour
 
     // Flags that control the state of the game
     private bool isRunning = false;
-    private bool isFinished = false;
+    public bool isFinished = false;
     public bool isDead = false;
     
     // So that we can access the player's controller from this script
@@ -43,6 +45,10 @@ public class GameManager : MonoBehaviour
     // Use this for initialization
     void Start()
     {
+        DeathScreen.SetActive(false);
+        WinScreen.SetActive(false);
+        PauseScreen.SetActive(false);
+
         // Finds the First Person Controller script on the Player
         fpsController = player.GetComponent<FirstPersonController>();        
 
@@ -55,9 +61,9 @@ public class GameManager : MonoBehaviour
 
     void Update()
     {
-        if(Input.GetKeyDown(KeyCode.Escape))
+        if (Input.GetKeyDown(KeyCode.Escape))
         {
-            Application.Quit();
+            PauseScreen.SetActive(true);
         }
 
     }
@@ -118,8 +124,19 @@ public class GameManager : MonoBehaviour
         isRunning = false;
         isFinished = true;
         fpsController.enabled = false;
+        dropped?.Invoke();
     }
-    
+
+    public void CloseMenu()
+    {
+        PauseScreen.SetActive(false);
+    }
+
+    public void ExitGame()
+    {
+        Application.Quit();
+    }
+
     //This section creates the Graphical User Interface (GUI)
     void OnGUI()
     {        

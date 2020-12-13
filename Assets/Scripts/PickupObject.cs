@@ -6,6 +6,7 @@ public class PickupObject : MonoBehaviour
 {
 
     GameObject CarriedObject;
+    public Transform[] objRespawnpoints;
     bool iscarrying;
     public AudioClip pickup;
     public AudioClip drop;
@@ -35,6 +36,7 @@ public class PickupObject : MonoBehaviour
         if ((collidedWith.tag == "Pickup") && (iscarrying == false))
         {
             collidedWith.transform.parent = GetComponent<Transform>().transform;
+            //collidedWith.GetComponent<Rigidbody>().velocity = new Vector3(0.0f, 0.0f, 0.0f);
             CarriedObject = collidedWith;
             iscarrying = true;
             collidedWith.tag = "Carried";
@@ -62,6 +64,8 @@ public class PickupObject : MonoBehaviour
         iscarrying = false;
         CarriedObject.tag = "Pickup";
         CarriedObject.transform.parent = null;
+        if (CarriedObject.transform.position.y < 0)
+            CarriedObject.transform.position = objRespawnpoints[Random.Range(0, 4)].transform.position;        
     }
   
 }
