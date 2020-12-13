@@ -17,7 +17,7 @@ public class Dragon : MonoBehaviour
     private bool isInside = false;
     private MeshFilter mFilter;
 
-    //public GameObject[] DragonSpawnpoints;
+    public GameObject[] DragonSpawnpoints;
 
 
 
@@ -35,7 +35,7 @@ public class Dragon : MonoBehaviour
     {
         if (gameManager.isDead)
         {
-            //SpawnDragons();
+            SpawnDragons();
             deadDragon.GetComponent<Animator>().Play("static");
             deadDragon.transform.localScale = new Vector3(0, 0, 0);
 
@@ -50,10 +50,10 @@ public class Dragon : MonoBehaviour
             agent.isStopped = true;
     }
 
-    /*public void SpawnDragons()
+    public void SpawnDragons()
     {
         transform.position = DragonSpawnpoints[Random.Range(0, 4)].transform.position;
-    }*/
+    }
 
     void OnTriggerEnter(Collider collider)
     {

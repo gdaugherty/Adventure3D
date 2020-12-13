@@ -64,7 +64,7 @@ public class PickupObject : MonoBehaviour
         iscarrying = false;
         CarriedObject.tag = "Pickup";
         CarriedObject.transform.parent = null;
-        if (CarriedObject.transform.position.y < 0)
+        if (CarriedObject.transform.position.y < -5)
             CarriedObject.transform.position = objRespawnpoints[Random.Range(0, 4)].transform.position;        
     }
   

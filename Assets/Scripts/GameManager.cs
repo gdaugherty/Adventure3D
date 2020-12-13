@@ -12,7 +12,6 @@ public class GameManager : MonoBehaviour
     public GameObject player;
     public GameObject DeathScreen;
     public GameObject WinScreen;
-    public GameObject PauseScreen;
 
     public GameObject[] GoldKeySpawnpoints;
     public GameObject[] WhiteKeySpawnpoints;
@@ -47,7 +46,6 @@ public class GameManager : MonoBehaviour
     {
         DeathScreen.SetActive(false);
         WinScreen.SetActive(false);
-        PauseScreen.SetActive(false);
 
         // Finds the First Person Controller script on the Player
         fpsController = player.GetComponent<FirstPersonController>();        
@@ -61,10 +59,6 @@ public class GameManager : MonoBehaviour
 
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Escape))
-        {
-            PauseScreen.SetActive(true);
-        }
 
     }
 
@@ -107,7 +101,6 @@ public class GameManager : MonoBehaviour
         PickupItems[4].transform.position = SwordSpawnpoints[Random.Range(0, 4)].transform.position;
         PickupItems[5].transform.position = BridgeSpawnpoints[Random.Range(0, 4)].transform.position;
         PickupItems[6].transform.position = MagnetSpawnpoints[Random.Range(0, 4)].transform.position;
-
     }
 
     private void ResumeGame()
@@ -117,7 +110,6 @@ public class GameManager : MonoBehaviour
         PositionPlayer();
     }
 
-
     // Runs when the player enters the finish zone
     public void FinishedGame()
     {
@@ -125,16 +117,6 @@ public class GameManager : MonoBehaviour
         isFinished = true;
         fpsController.enabled = false;
         dropped?.Invoke();
-    }
-
-    public void CloseMenu()
-    {
-        PauseScreen.SetActive(false);
-    }
-
-    public void ExitGame()
-    {
-        Application.Quit();
     }
 
     //This section creates the Graphical User Interface (GUI)
@@ -146,6 +128,11 @@ public class GameManager : MonoBehaviour
             if (isFinished)
             {
                 WinScreen.SetActive(true);
+
+                if (Input.GetKeyDown(KeyCode.Space))
+                {
+                    Application.Quit();
+                }
             }
             else
             {
