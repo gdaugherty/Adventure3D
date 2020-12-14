@@ -129,7 +129,7 @@ public class GameManager : MonoBehaviour
             {
                 WinScreen.SetActive(true);
 
-                if (Input.GetKeyDown(KeyCode.Space))
+                if (Input.GetKeyDown(KeyCode.Escape))
                 {
                     Application.Quit();
                 }
