@@ -6,6 +6,7 @@ using UnityEngine.UI;
 public class PauseScreenManager : MonoBehaviour
 {
     public GameObject pausePanel;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -23,14 +24,12 @@ public class PauseScreenManager : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Escape))
         {
             pausePanel.SetActive(true);
-            Time.timeScale = 0;
         }
     }
 
     public void CloseMenu()
     {
         pausePanel.SetActive(false);
-        Time.timeScale = 1.0f;
     }
 
     public void ExitGame()

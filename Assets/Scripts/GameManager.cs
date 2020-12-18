@@ -59,7 +59,10 @@ public class GameManager : MonoBehaviour
 
     void Update()
     {
-
+        if (Input.GetKeyDown(KeyCode.F1))
+        {
+            DeadPlayer();
+        }
     }
 
     //Runs when the player needs to be positioned back at the spawn point
